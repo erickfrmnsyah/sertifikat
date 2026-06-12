@@ -19,18 +19,22 @@
 body{
     background:#f3f3f3;
     font-family:Arial, Helvetica, sans-serif;
-    padding:30px;
+    padding:30px 0; /* Padding atas bawah tetap ada, kiri kanan dilepas agar scroll mulus */
+    overflow-x: auto; /* KUNCI UTAMA: Mengizinkan seluruh halaman di-scroll horizontal di HP */
+    -webkit-overflow-scrolling: touch;
 }
 
 .container{
     max-width:900px;
     margin:auto;
+    padding: 0 15px;
 }
 
 .certificate{
     background:white;
     border:8px solid #0057A4;
     padding:40px;
+    min-width: 800px; /* KUNCI MATI: Memaksa sertifikat (termasuk logo & teks) konstan di ukuran desktop */
 }
 
 .header{
@@ -41,22 +45,32 @@ body{
     padding-bottom:15px;
 }
 
+.logo{
+    flex-shrink: 0; 
+}
+
 .logo img{
-    height:55px;
+    height:55px; /* Ukuran tinggi logo dikunci mati */
+    width: auto;
+    display: block;
 }
 
 .header-right{
     text-align:right;
     color:#0057A4;
+    flex-shrink: 0; /* Mencegah teks mengecil atau dipaksa turun kebawah */
 }
 
 .header-right h2{
-    font-size:20px;
+    font-size:20px; 
     font-weight:700;
+    line-height: 1.2;
+    white-space: nowrap; /* Mencegah teks pecah menjadi 2 baris di mobile */
 }
 
 .header-right p{
     font-size:12px;
+    white-space: nowrap; /* Mencegah teks pecah menjadi 2 baris di mobile */
 }
 
 .number{
@@ -82,6 +96,7 @@ body{
     font-weight:bold;
     border-bottom:2px solid #0057A4;
     padding-bottom:8px;
+    line-height: 1.2;
 }
 
 .desc{
@@ -90,18 +105,15 @@ body{
     color:#444;
 }
 
-/* WRAPPER TABEL: Membuat tabel bisa di-slide saat layar kecil */
 .table-responsive {
     width: 100%;
-    overflow-x: auto;
     margin-top: 40px;
-    -webkit-overflow-scrolling: touch;
 }
 
+/* Mengikuti lebar sertifikat yang sudah difixed */
 .score-table{
     width:100%;
     border-collapse:collapse;
-    min-width: 600px; /* Batas minimum lebar agar memicu efek slide */
 }
 
 .score-table th,
@@ -144,7 +156,10 @@ body{
     background:#eef6ff;
     border-left:4px solid #0057A4;
     font-size:14px;
+    min-width: 800px; /* Menyamakan lebar kotak verifikasi dengan sertifikat */
 }
+
+/* Sengaja tidak menggunakan Media Query untuk mengecilkan font agar tampilan mutlak konstan */
 
 </style>
 
