@@ -4,9 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="./assets/logo-lbifibui.png">
 
 <title>Certificate Verification</title>
+<link rel="icon" href="../assets/favicon.png?v=2">
 
 <style>
 
@@ -90,10 +90,18 @@ body{
     color:#444;
 }
 
+/* WRAPPER TABEL: Membuat tabel bisa di-slide saat layar kecil */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 40px;
+    -webkit-overflow-scrolling: touch;
+}
+
 .score-table{
     width:100%;
     border-collapse:collapse;
-    margin-top:40px;
+    min-width: 600px; /* Batas minimum lebar agar memicu efek slide */
 }
 
 .score-table th,
@@ -185,36 +193,38 @@ body{
             on 14 February 2026 with the following results:
         </div>
 
-        <table class="score-table">
+        <div class="table-responsive">
+            <table class="score-table">
 
-            <tr>
-                <th colspan="2">Section I</th>
-                <th colspan="2">Section II</th>
-                <th colspan="2">Section III</th>
-                <th>EPT Score</th>
-            </tr>
+                <tr>
+                    <th colspan="2">Section I</th>
+                    <th colspan="2">Section II</th>
+                    <th colspan="2">Section III</th>
+                    <th>EPT Score</th>
+                </tr>
 
-            <tr>
-                <th>Raw</th>
-                <th>Converted</th>
-                <th>Raw</th>
-                <th>Converted</th>
-                <th>Raw</th>
-                <th>Converted</th>
-                <th>Converted</th>
-            </tr>
+                <tr>
+                    <th>Raw</th>
+                    <th>Converted</th>
+                    <th>Raw</th>
+                    <th>Converted</th>
+                    <th>Raw</th>
+                    <th>Converted</th>
+                    <th>Converted</th>
+                </tr>
 
-            <tr>
-                <td>21</td>
-                <td>49</td>
-                <td>27</td>
-                <td>56</td>
-                <td>18</td>
-                <td>48</td>
-                <td>503</td>
-            </tr>
+                <tr>
+                    <td>21</td>
+                    <td>49</td>
+                    <td>27</td>
+                    <td>56</td>
+                    <td>18</td>
+                    <td>48</td>
+                    <td>503</td>
+                </tr>
 
-        </table>
+            </table>
+        </div>
 
         <div class="note">
 
