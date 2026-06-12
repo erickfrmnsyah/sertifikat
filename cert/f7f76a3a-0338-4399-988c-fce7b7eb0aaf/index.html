@@ -3,7 +3,25 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+    // Skrip pintar untuk mendeteksi ukuran layar sebelum halaman dimuat
+    (function() {
+        var width = screen.width;
+        // Jika layar di bawah 850px (termasuk semua jenis HP), paksa viewport melebar ke 850px
+        if (width < 850) {
+            var meta = document.createElement('meta');
+            meta.name = 'viewport';
+            meta.content = 'width=850, initial-scale=' + (width / 850);
+            document.getElementsByTagName('head')[0].appendChild(meta);
+        } else {
+            // Jika dibuka di desktop, biarkan normal responsif
+            var meta = document.createElement('meta');
+            meta.name = 'viewport';
+            meta.content = 'width=device-width, initial-scale=1.0';
+            document.getElementsByTagName('head')[0].appendChild(meta);
+        }
+    })();
+</script>
 
 <title>LBI FIB UI</title>
 <link rel="icon" href="/assets/favicon.png?v=2">
@@ -73,10 +91,16 @@ body{
     white-space: nowrap; /* Mencegah teks pecah menjadi 2 baris di mobile */
 }
 
+/* Membuat warna teks Fakultas dan Universitas menjadi hitam */
+.header-right p.text-black {
+    color: #000000;
+}
+
 .number{
     margin-top:15px;
     font-size:12px;
     color:#555;
+    font-weight: bold; /* Membuat No. 1656 menjadi bold */
 }
 
 .content{
@@ -93,7 +117,7 @@ body{
 .name{
     display:inline-block;
     font-size:34px;
-    font-weight:bold;
+    font-weight:900; /* MODIFIKASI: Mengubah tingkat ketebalan nama menjadi Extra Bold / Heavy Black (900) */
     border-bottom:2px solid #0057A4;
     padding-bottom:8px;
     line-height: 1.2;
@@ -183,8 +207,8 @@ body{
 
         <div class="header-right">
             <h2>LEMBAGA BAHASA INTERNASIONAL</h2>
-            <p>FAKULTAS ILMU PENGETAHUAN BUDAYA</p>
-            <p>UNIVERSITAS INDONESIA</p>
+            <p class="text-black">FAKULTAS ILMU PENGETAHUAN BUDAYA</p>
+            <p class="text-black">UNIVERSITAS INDONESIA</p>
         </div>
 
     </div>
@@ -204,8 +228,8 @@ body{
         </div>
 
         <div class="desc">
-            has taken UI's EPT which was administered<br>
-            on 14 February 2026 with the following results:
+            has taken <i>UI's EPT</i> which was administered<br>
+            on <i>14 February 2026</i> with the following results:
         </div>
 
         <div class="table-responsive">
